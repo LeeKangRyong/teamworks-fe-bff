@@ -1,7 +1,7 @@
 {
   "name": "teamworks-fe-bff",
   "version": "1.0.0",
-  "description": "",
+  "description": "BFF Server for Teamworks Frontend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,20 +12,16 @@
     "type": "git",
     "url": "git+https://github.com/LeeKangRyong/teamworks-fe-bff.git"
   },
-  "keywords": [],
+  "keywords": ["bff", "express", "auth"],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LeeKangRyong/teamworks-fe-bff/issues"
-  },
-  "homepage": "https://github.com/LeeKangRyong/teamworks-fe-bff#readme",
   "dependencies": {
     "axios": "^1.11.0",
-    "axois": "^0.0.1-security",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
-    "express": "^5.1.0",
-    "morgan": "^1.10.1"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
