@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const authRouter = require('./routers/authRouter');
-const errorHandler = require('./middlewares/errorHandler');
+const { errorHandler } = require('./middlewares/errorHandler');
 
 dotenv.config();
 
@@ -36,14 +36,6 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/api/auth', authRouter);
-
-// 404 에러 핸들러
-app.use('*', (req, res) => {
-    res.status(404).json({
-        success: false,
-        message: 'Endpoint not found'
-    });
-});
 
 app.use(errorHandler);
 

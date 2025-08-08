@@ -1,4 +1,4 @@
-export const errorHandler = (error, req, res, next) => {
+const errorHandler = (error, req, res, next) => {
     if (res.headersSent) {
         return next(error);
     }
@@ -27,3 +27,5 @@ export const errorHandler = (error, req, res, next) => {
         message: error.message || 'An error occurred'
     });
 };
+
+module.exports = { errorHandler };

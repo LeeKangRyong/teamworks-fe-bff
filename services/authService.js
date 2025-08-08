@@ -13,19 +13,15 @@ class AuthService {
             const result = await authAdapter.login(credentials);
 
             return {
-                success: true,
-                data: {
-                    user: {
-                        id: result.user.id,
-                        email: result.user.email,
-                        name: result.user.name,
-                        role: result.user.role,
-                        isLogin: true
-                    },
-                    accessToken: result.accessToken,
-                    refreshToken: result.refreshToken
+                user: {
+                    id: result.user.id,
+                    email: result.user.email,
+                    name: result.user.name,
+                    role: result.user.role,
+                    isLogin: true
                 },
-                message: 'Login successful'
+                accessToken: result.accessToken,
+                refreshToken: result.refreshToken
             };
         } catch (error) {
             throw {
@@ -52,16 +48,12 @@ class AuthService {
             const result = await authAdapter.register(adminData);
 
             return {
-                success: true,
-                data: {
-                    user: {
-                        id: result.user.id,
-                        email: result.user.email,
-                        name: result.user.name,
-                        role: result.user.role
-                    }
-                },
-                message: 'Admin registration successful'
+                user: {
+                    id: result.user.id,
+                    email: result.user.email,
+                    name: result.user.name,
+                    role: result.user.role
+                }
             };
         } catch (error) {
             throw {
@@ -88,16 +80,12 @@ class AuthService {
             const result = await authAdapter.register(userInfo);
 
             return {
-                success: true,
-                data: {
-                    user: {
-                        id: result.user.id,
-                        email: result.user.email,
-                        name: result.user.name,
-                        role: result.user.role
-                    }
-                },
-                message: 'User registration successful'
+                user: {
+                    id: result.user.id,
+                    email: result.user.email,
+                    name: result.user.name,
+                    role: result.user.role
+                }
             };
         } catch (error) {
             throw {
@@ -119,12 +107,8 @@ class AuthService {
             const result = await authAdapter.refreshToken(refreshToken);
 
             return {
-                success: true,
-                data: {
-                    accessToken: result.accessToken,
-                    refreshToken: result.refreshToken
-                },
-                message: 'Token refreshed successfully'
+                accessToken: result.accessToken,
+                refreshToken: result.refreshToken
             };
         } catch (error) {
             throw {
@@ -146,7 +130,6 @@ class AuthService {
             await authAdapter.logout(token);
 
             return {
-                success: true,
                 message: 'Logout successful'
             };
         } catch (error) {
