@@ -1,0 +1,60 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: teamworks BFF API
+  description: BFF API 명세서입니다~
+  license:
+    name: kangryong
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+servers:
+  - url: '$$API_SERVER_URL$$'
+
+paths: 
+  /:
+    get:
+      summary: 서버 상태 확인
+      description: BFF 서버의 기본 상태를 확인합니다
+      responses:
+        '200':
+          description: 서버 정상 응답
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Teamworks BFF Server"
+
+  /health:
+    get:
+      summary: 헬스 체크
+      description: 서버의 헬스 상태를 확인합니다
+      responses:
+        '200':
+          description: 헬스 체크 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "healthy"
+                  timestamp:
+                    type: string
+                    format: date-time
+                    example: "2025-09-05T12:00:00.000Z"
+
+  /test:
+    $ref: './test.yaml#/test'
+
+  /test/{name}:
+    $ref: './test.yaml#/test-name'

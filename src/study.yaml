@@ -1,0 +1,25 @@
+# JSON vs YAML
+# JSON의 {} == YAML의 tab
+# JSON의 [] == YAML의 - 
+# JSON의 "name": "hi" == YAML의 name: "hi" (key-value)
+# YAML에서 | => JSON에서 enter할 때마다 \n
+# YAML에서 > => JSON에서 맨 끝에만 \n
+
+
+# default로 코드 간결과 in YAML
+# default: &default
+  # group: "bp"
+  # description: |
+    # "I am bp"
+
+# students:
+  # - name: "지수"
+    # <<: *default
+
+# JSON
+# students: [
+  # {
+    # "name": "지수",
+    # "group": "bp",
+    # "description": "I am bp\n"
+  # }

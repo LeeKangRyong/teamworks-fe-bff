@@ -4,15 +4,22 @@
   "description": "BFF Server for Teamworks Frontend",
   "main": "index.js",
   "scripts": {
+    "build": "npm run api-docs && tsc && node dist",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "api-docs": "swagger-cli bundle ./src/swagger/openapi.yaml --outfile build/swagger.yaml --type yaml && node scripts/replace-env.js",
+    "api-docs:dev": "swagger-cli bundle ./src/swagger/openapi.yaml --outfile build/swagger.yaml --type yaml && node scripts/replace-env.js dev",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "npm run api-docs:dev && nodemon index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LeeKangRyong/teamworks-fe-bff.git"
   },
-  "keywords": ["bff", "express", "auth"],
+  "keywords": [
+    "bff",
+    "express",
+    "auth"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -21,6 +28,13 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "swagger-cli": "^4.0.4",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/swagger-ui-express": "^4.1.8",
+    "@types/yamljs": "^0.2.34"
   }
 }
